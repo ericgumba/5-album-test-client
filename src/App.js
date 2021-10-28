@@ -6,6 +6,7 @@ import AdComponent from './components/ad';
 import AppMenu from './components/Menu';
 import AdSense from 'react-ssr-adsense';
 
+const ENTIRE_DISCOGRAPHY = 0
 
 const filterArtistList = (artistList,n) => {
   if (n == 0) return artistList
@@ -73,8 +74,7 @@ function App() {
   }
   const filterArtists = () => {
     if(artistNameSearch){
-      setFilteredArtistList(filterByName(artistList,artistNameSearch))
-
+      setFilteredArtistList(calculateListWithScore(filterByName(artistList,artistNameSearch),ENTIRE_DISCOGRAPHY))
     } else{
       const listWithNumOfAlbumsFilter = filterArtistList(artistList ,numberOfAlbums)
       const genreList = filterGenreList(listWithNumOfAlbumsFilter,genre)
@@ -88,7 +88,6 @@ function App() {
   const filterArtistsByName = () => {
     console.log("FILTER ARTIST BY NAME CALLED")
     const listWithArtistName = filterByName(artistList, artistNameSearch)
-    const ENTIRE_DISCOGRAPHY = 0
     const finalList = calculateListWithScore(listWithArtistName, ENTIRE_DISCOGRAPHY)
     setFilteredArtistList(finalList) 
   }
@@ -105,7 +104,7 @@ function App() {
 
   }, [] ); 
 
-  React.useEffect(filterArtists, [numberOfAlbums,genre,artistNameSearch]) 
+  React.useEffect(filterArtists, [numberOfAlbums,genre,artistNameSearch,loaded]) 
 
   if (artistList.length > 0){
 
@@ -114,7 +113,7 @@ function App() {
       <header className="App-header"> 
       Hi
       </header>   
-      {/* <AdComponent/> */}
+      <AdComponent/>
       <AppMenu buttonClicked={buttonClicked} artistList={artistList} setNumberOfAlbums={setNumberOfAlbums} setGenre={setGenre} setArtistNameSearch={setArtistNameSearch}/>
       <ArtistTable artistList={filteredArtistList} numberOfAlbums={numberOfAlbums}/>  
 
