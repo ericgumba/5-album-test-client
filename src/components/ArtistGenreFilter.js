@@ -16,7 +16,7 @@ const ArtistGenreFilter = (props) => {
 
     return(
         <FormControl>
-            <InputLabel id="Input label">Select</InputLabel>
+            <InputLabel id="Input label">Select Genre</InputLabel>
                 <Select
                     labelId= "Input label"
                     id= "Select Genre"

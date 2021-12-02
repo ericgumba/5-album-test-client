@@ -23,7 +23,7 @@ export default function Search(props) {
         freeSolo
         onChange= {handleValueChange}
         options={props.artistList.map((artist) => artist.name)}
-        renderInput={(params) => <TextField {...params} label="freeSolo" />}
+        renderInput={(params) => <TextField {...params} label="Search Artist" />}
       /> 
 
     </Stack>

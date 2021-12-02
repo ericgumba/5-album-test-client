@@ -17,7 +17,7 @@ const AlbumNumberFilter = (props) => {
 
     return(
         <FormControl>
-            <InputLabel id="Input label">Select</InputLabel>
+            <InputLabel id="Input label">Select Number Of Albums</InputLabel>
                 <Select
                     labelId= "Input label"
                     id= "Select"

@@ -101,7 +101,7 @@ function App() {
     return (
       <div className="App">
       <header className="App-header"> 
-      Finished Loading
+      Finished Loading... Scroll Below For Results
       </header>   
       <AdComponent/>
       <AppMenu buttonClicked={buttonClicked} artistList={artistList} setNumberOfAlbums={setNumberOfAlbums} setGenre={setGenre} setArtistNameSearch={setArtistNameSearch}/>
