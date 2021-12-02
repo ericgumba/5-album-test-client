@@ -48,13 +48,10 @@ const calculateListWithScore = (artistList, numberOfAlbums ) => {
 }
 
 
-const filterByName = (artistList, artistNameSearch) => {
-  console.log("filter by name called: ", artistNameSearch)
-  if(!(!!artistNameSearch)) {
-    console.log("returning artist list")
+const filterByName = (artistList, artistNameSearch) => { 
+  if(!(!!artistNameSearch)) { 
     return artistList
-  } 
-  console.log("artist name search: ", artistNameSearch)
+  }  
   return artistList.filter( (artist) => artist.name.includes( artistNameSearch ) ) 
 }
 
@@ -83,14 +80,7 @@ function App() {
     }
   }
 
- 
   
-  const filterArtistsByName = () => {
-    console.log("FILTER ARTIST BY NAME CALLED")
-    const listWithArtistName = filterByName(artistList, artistNameSearch)
-    const finalList = calculateListWithScore(listWithArtistName, ENTIRE_DISCOGRAPHY)
-    setFilteredArtistList(finalList) 
-  }
 
   React.useEffect(() => {
     async function retrieve(){ 
@@ -111,7 +101,7 @@ function App() {
     return (
       <div className="App">
       <header className="App-header"> 
-      Hi
+      Finished Loading
       </header>   
       <AdComponent/>
       <AppMenu buttonClicked={buttonClicked} artistList={artistList} setNumberOfAlbums={setNumberOfAlbums} setGenre={setGenre} setArtistNameSearch={setArtistNameSearch}/>
@@ -123,7 +113,7 @@ function App() {
     return (
       <div className="App">
     <header className="App-header"> 
-    loading
+    Loading...
     </header>  
     {/* <AdComponent/> */}
     </div>
